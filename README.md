@@ -67,7 +67,7 @@ bash run_convert_camera.sh ../../data/<your-data-dir>
 ### Training
 - To train on a set of images with a white/black background (recommended), use the corresponding config file and select a scene:
 ```
-bash single_runner.sh <config_folder> <workdir> <scene_name>
+bash single_runner.sh <config_folder> <workdir> <scene>
 
 # DTU example
 bash single_runner.sh configs/dtu_e2e exp 122
