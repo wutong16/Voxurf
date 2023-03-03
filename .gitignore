@@ -1,0 +1,13 @@
+**/.ipynb_checkpoints
+**/__pycache__
+*.npy
+*.npz
+*.dae
+*.obj
+*.png
+*.jpg
+*.ply
+data
+logs
+.idea
+assets
