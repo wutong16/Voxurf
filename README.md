@@ -42,6 +42,8 @@ pip install -r requirements.txt
 - [Tanks&Temples](https://dl.fbaipublicfiles.com/nsvf/dataset/TanksAndTemple.zip)
 - [DeepVoxels](https://drive.google.com/open?id=1ScsRlnzy9Bd_n-xw83SP-0t548v63mPH)
 
+Extract the datasets to `./data/`.
+
 ### Custom data
 For your own data (e.g., a video or multi-view images), go through the preprocessing steps below.
 <details>
