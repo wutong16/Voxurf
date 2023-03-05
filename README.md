@@ -26,7 +26,7 @@ https://user-images.githubusercontent.com/28827385/222728479-af81dc68-6a15-4ab1-
 - [2023-01] :partying_face: Voxurf is accepted to ICLR 2023 (Spotlight)!
 
 ## Installation
-Please first install a suitable version of [Pytorch](https://pytorch.org/) and [torch_scatter](https://github.com/rusty1s/pytorch_scatter) on your machine.
+Please first install a suitable version of [Pytorch](https://pytorch.org/) and [torch_scatter](https://github.com/rusty1s/pytorch_scatter) on your machine. We tested on CUDA 11.1 with Pytorch 1.10.0.
 ```
 git clone git@github.com/wutong16/Voxurf.git
 cd Voxurf
