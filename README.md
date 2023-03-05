@@ -45,11 +45,13 @@ pip install -r requirements.txt
 Extract the datasets to `./data/`.
 
 ### Custom data
-For your own data (e.g., a video or multi-view images), go through the preprocessing steps below.
+For your own data (e.g., a video or multi-view images), go through the preprocessing steps below. 
 <details>
   <summary> Preprocessing (click to expand) </summary>
-
-  - Extract video frames (if needed), remove the background, and save the masks (install [rembg](https://github.com/danielgatis/rembg) first).
+  
+  - Please install [COLMAP](https://colmap.github.io/) and [rembg](https://github.com/danielgatis/rembg) first.
+  
+  - Extract video frames (if needed), remove the background, and save the masks.
 ```
 mkdir data/<your-data-dir>
 cd tools/preprocess
