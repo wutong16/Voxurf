@@ -101,7 +101,7 @@ If you find the code useful for your research, please cite our paper.
     title={Voxurf: Voxel-based Efficient and Accurate Neural Surface Reconstruction},
     author={Tong Wu and Jiaqi Wang and Xingang Pan and Xudong Xu and Christian Theobalt and Ziwei Liu and Dahua Lin},
     booktitle={International Conference on Learning Representations (ICLR)},
-    year={2022},
+    year={2023},
 }
 ```
 
