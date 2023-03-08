@@ -41,6 +41,7 @@ pip install -r requirements.txt
 - [BlendedMVS](https://dl.fbaipublicfiles.com/nsvf/dataset/BlendedMVS.zip)
 - [Tanks&Temples](https://dl.fbaipublicfiles.com/nsvf/dataset/TanksAndTemple.zip)
 - [DeepVoxels](https://drive.google.com/open?id=1ScsRlnzy9Bd_n-xw83SP-0t548v63mPH)
+- [MobileBrick](https://www.robots.ox.ac.uk/~victor/data/MobileBrick/MobileBrick_Mar23.zip)
 
 Extract the datasets to `./data/`.
 
@@ -81,6 +82,13 @@ bash single_runner.sh configs/dtu_e2e exp 122
 ```
 # DTU example
 bash single_runner_womask.sh configs/dtu_e2e_womask exp 122
+```
+
+- To train without foreground mask on MobileBrick. The full evaluation on MobileBrick compared with other methods can be found [here](https://code.active.vision/MobileBrick/#:~:text=4.74-,Voxurf,-RGB)
+
+```
+# MobileBrick example
+bash single_runner_womask.sh configs/mobilebrick_e2e_womask/ exp $SCENE
 ```
 
 ### NVS evaluation
