@@ -70,6 +70,7 @@ bash run_convert_camera.sh ../../data/<your-data-dir>
 
 ## Running
 ### Training
+- You could find all the config files for the included datasets under `./configs`.
 - To train on a set of images with a white/black background (recommended), use the corresponding config file and select a scene:
 ```
 bash single_runner.sh <config_folder> <workdir> <scene>
@@ -84,12 +85,13 @@ bash single_runner.sh configs/dtu_e2e exp 122
 bash single_runner_womask.sh configs/dtu_e2e_womask exp 122
 ```
 
-- To train without foreground mask on MobileBrick. The full evaluation on MobileBrick compared with other methods can be found [here](https://code.active.vision/MobileBrick/#:~:text=4.74-,Voxurf,-RGB)
+- To train without foreground mask on MobileBrick. The full evaluation on MobileBrick compared with other methods can be found [here](https://code.active.vision/MobileBrick/#:~:text=4.74-,Voxurf,-RGB).
 
 ```
 # MobileBrick example
 bash single_runner_womask.sh configs/mobilebrick_e2e_womask/ exp $SCENE
 ```
+
 
 ### NVS evaluation
 ```
