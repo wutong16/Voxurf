@@ -12,6 +12,7 @@ from .load_volsdf_bmvs import load_vbmvs_data
 from .load_co3d import load_co3d_data
 from .load_scannet import load_scannet_data
 from .load_llff import load_llff_data
+from .load_mobilebrick import load_mobilebrick_data
 
 def load_data(args, reso_level=2, train_all=True, wmask=True, white_bg=True):
     print("[ resolution level {} | train all {} | wmask {} | white_bg {}]".format(reso_level, train_all, wmask, white_bg))
@@ -162,6 +163,18 @@ def load_data(args, reso_level=2, train_all=True, wmask=True, white_bg=True):
         i_train, i_val, i_test = i_split
         near_clip, far = inward_nearfar_heuristic(poses[i_train, :3, 3], ratio=0.02)
         near = 0
+
+    elif args.dataset_type == "mobile_brick":
+        images, poses, render_poses, hwf, K, i_split, scale_mats_np, masks = load_mobilebrick_data(args.datadir, reso_level=reso_level, mask=wmask, white_bg=white_bg)
+        print('Loaded mobile_brick', images.shape, render_poses.shape, hwf, args.datadir)
+        i_train, i_val, i_test = i_split
+
+        if train_all:
+            i_train = np.arange(int(images.shape[0]))
+
+        near, far = inward_nearfar_heuristic(poses[i_train, :3, 3])
+
+        assert images.shape[-1] == 3
 
     else:
         raise NotImplementedError(f'Unknown dataset type {args.dataset_type} exiting')
