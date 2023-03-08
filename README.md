@@ -89,7 +89,7 @@ bash single_runner_womask.sh configs/dtu_e2e_womask exp 122
 
 ```
 # MobileBrick example
-bash single_runner_womask.sh configs/mobilebrick_e2e_womask/ exp $SCENE
+bash single_runner_womask.sh configs/mobilebrick_e2e_womask/ exp <scene>
 ```
 
 
