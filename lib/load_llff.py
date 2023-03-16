@@ -1,5 +1,6 @@
 import numpy as np
 import os, imageio
+import glob
 import shutil
 
 
@@ -66,7 +67,7 @@ def _minify(basedir, factors=[], resolutions=[]):
         print('Minifying', r, basedir)
 
         os.makedirs(imgdir)
-        copytree(imgdir_orig, imgdir)
+        [shutil.copy(f, os.path.join(imgdir, f.split(os.sep)[-1])) for f in glob.glob(os.path.join(imgdir_orig, '*'))]
 
         ext = imgs[0].split('.')[-1]
         args = ' '.join(['mogrify', '-resize', resizearg, '-format', 'png', '*.{}'.format(ext)])
@@ -76,7 +77,7 @@ def _minify(basedir, factors=[], resolutions=[]):
         os.chdir(wd)
 
         if ext != 'png':
-            map(os.remove, glob.glob(os.path.join(imgdir, f'*.{ext}')))
+            [os.remove(f) for f in glob.glob(os.path.join(imgdir, f'*.{ext}'))]
             print('Removed duplicates')
         print('Done')
 
