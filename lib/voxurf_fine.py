@@ -18,7 +18,7 @@ render_utils_cuda = load(
         name='render_utils_cuda',
         sources=[
             os.path.join(parent_dir, path)
-            for path in ['cuda/render_utils.cpp', 'cuda/render_utils_kernel.cu']],
+            for path in [os.path.join('cuda', 'render_utils.cpp'), os.path.join('cuda', 'render_utils_kernel.cu')]],
         verbose=True)
 
 '''Model'''

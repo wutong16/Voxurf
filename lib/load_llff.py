@@ -1,5 +1,7 @@
 import numpy as np
 import os, imageio
+import glob
+import shutil
 
 
 ########## Slightly modified version of LLFF data loading code
@@ -65,7 +67,7 @@ def _minify(basedir, factors=[], resolutions=[]):
         print('Minifying', r, basedir)
 
         os.makedirs(imgdir)
-        check_output('cp {}/* {}'.format(imgdir_orig, imgdir), shell=True)
+        [shutil.copy(f, os.path.join(imgdir, f.split(os.sep)[-1])) for f in glob.glob(os.path.join(imgdir_orig, '*'))]
 
         ext = imgs[0].split('.')[-1]
         args = ' '.join(['mogrify', '-resize', resizearg, '-format', 'png', '*.{}'.format(ext)])
@@ -75,7 +77,7 @@ def _minify(basedir, factors=[], resolutions=[]):
         os.chdir(wd)
 
         if ext != 'png':
-            check_output('rm {}/*.{}'.format(imgdir, ext), shell=True)
+            [os.remove(f) for f in glob.glob(os.path.join(imgdir, f'*.{ext}'))]
             print('Removed duplicates')
         print('Done')
 

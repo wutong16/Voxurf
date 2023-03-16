@@ -1,14 +1,16 @@
-_base_ = '../default_fine_s.py'
+import os
+
+_base_ = os.path.join('..', 'default_fine_s.py')
 
 expname = 'scan'
-basedir = './logs/deepvoxels'
+basedir = os.path.join('.', 'logs', 'deepvoxels')
 train_all = True
 reso_level = 2
 exp_stage = 'coarse'
 
 
 data = dict(
-    datadir='./data/deepvoxels/',
+    datadir=os.path.join('.', 'data', 'deepvoxels'),
     dataset_type='deepvoxels',
     # inverse_y=True,
     white_bkgd=True,

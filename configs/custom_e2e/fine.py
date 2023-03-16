@@ -1,14 +1,16 @@
-_base_ = '../default_fine_s.py'
+import os
+
+_base_ = os.path.join('..', 'default_fine_s.py')
 
 expname = 'scan'
-basedir = './logs/custom'
+basedir = os.path.join('.', 'logs', 'custom')
 train_all = False
 reso_level = 1
 exp_stage = 'fine'
 
 
 data = dict(
-    datadir='./data/',
+    datadir=os.path.join('.', 'data'),
     dataset_type='dtu',
     inverse_y=True,
     white_bkgd=False,

@@ -13,14 +13,14 @@ render_utils_cuda = load(
         name='render_utils_cuda',
         sources=[
             os.path.join(parent_dir, path)
-            for path in ['cuda/render_utils.cpp', 'cuda/render_utils_kernel.cu']],
+            for path in [os.path.join('cuda', 'render_utils.cpp'), os.path.join('cuda', 'render_utils_kernel.cu')]],
         verbose=True)
 
 total_variation_cuda = load(
         name='total_variation_cuda',
         sources=[
             os.path.join(parent_dir, path)
-            for path in ['cuda/total_variation.cpp', 'cuda/total_variation_kernel.cu']],
+            for path in [os.path.join('cuda', 'total_variation.cpp'), os.path.join('cuda', 'total_variation_kernel.cu')]],
         verbose=True)
 
 

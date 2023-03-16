@@ -1,7 +1,9 @@
-_base_ = '../default_fine_s.py'
+import os
+
+_base_ = os.path.join('..', 'default_fine_s.py')
 
 expname = ''
-basedir = './logs/mobile_brick'
+basedir = os.path.join('.', 'logs', 'mobile_brick')
 train_all = True
 reso_level = 2
 exp_stage = 'coarse'
@@ -9,7 +11,7 @@ exp_stage = 'coarse'
 use_sp_color = False
 
 data = dict(
-    datadir='./data/mobile_brick/test/',
+    datadir=os.path.join('.', 'data', 'mobile_brick', 'test'),
     dataset_type='mobile_brick',
     inverse_y=True,
     white_bkgd= False,

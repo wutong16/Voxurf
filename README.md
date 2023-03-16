@@ -92,6 +92,10 @@ bash single_runner_womask.sh configs/dtu_e2e_womask exp 122
 bash single_runner_womask.sh configs/mobilebrick_e2e_womask/ exp <scene>
 ```
 
+> **Note**
+> For Windows users, please use the provided batch scripts with extension`.bat` instead of the bash scripts with extension `.sh`
+> Additionally, the forward slashes `/` in the paths should be replaced with backslashes `\`.
+> A batch script can be run simply through `<script_name>.bat <arg1> ... <argN>`.
 
 ### NVS evaluation
 ```

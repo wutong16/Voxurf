@@ -1,14 +1,16 @@
-_base_ = '../default_fine_s.py'
+import os
+
+_base_ = os.path.join('..', 'default_fine_s.py')
 
 expname = 'scan'
-basedir = './logs/tanks_and_temple'
+basedir = os.path.join('.', 'logs', 'tanks_and_temple')
 train_all = True
 reso_level = 2
 exp_stage = 'coarse'
 
 
 data = dict(
-    datadir='./data/TanksAndTemple/',
+    datadir=os.path.join('.', 'data', 'TanksAndTemple'),
     dataset_type='tankstemple',
     inverse_y=True,
     load2gpu_on_the_fly=True,
