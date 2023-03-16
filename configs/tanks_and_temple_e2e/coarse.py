@@ -48,7 +48,7 @@ surf_train=dict(
     },
 
     lrate_k0=1e-1, #1e-1,                # lr of color/feature voxel grid
-    lrate_rgbnet=1e-3, # 1e-3,           # lr of the mlp to preduct view-dependent color
+    lrate_rgbnet=1e-3, # 1e-3,           # lr of the mlp to predict view-dependent color
     lrate_rgb_addnet=1e-3, # 1e-3,
 )
 
