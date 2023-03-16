@@ -48,7 +48,7 @@ surf_train=dict(
         15000:dict(sdf=0.1),
     },
     lrate_k0=1e-1, #1e-1,                # lr of color/feature voxel grid
-    lrate_rgbnet=1e-3 * 3, # 1e-3,       # lr of the mlp to preduct view-dependent color
+    lrate_rgbnet=1e-3 * 3, # 1e-3,       # lr of the mlp to predict view-dependent color
     lrate_k_rgbnet=1e-3,
 )
 
@@ -63,7 +63,7 @@ surf_model_and_render=dict(
     rgbnet_full_implicit=False, # by using a full mlp without local feature for rgb, the info for the geometry would be better
     rgbnet_depth=4,
     k_rgbnet_depth=4, # deeper is better
-    k_grad_feat=(1.0,),  # default = 0 | or set as 3 to feed in the normal itself | or set as geo_rgb_dim to feed in the hierachical normal
+    k_grad_feat=(1.0,),  # default = 0 | or set as 3 to feed in the normal itself | or set as geo_rgb_dim to feed in the hierarchical normal
     k_sdf_feat=(), # default = 0 | or we could set it as feat_rgb_dim so that it takes in the feature
     rgbnet_dim=6, # larger is better
     rgbnet_width=192,
