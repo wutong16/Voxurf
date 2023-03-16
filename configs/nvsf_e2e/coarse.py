@@ -1,14 +1,16 @@
-_base_ = '../default_fine_s.py'
+import os
+
+_base_ = os.path.join('..', 'default_fine_s.py')
 
 expname = 'scan'
-basedir = './logs/nsvf'
+basedir = os.path.join('.', 'logs', 'nsvf')
 train_all = True
 reso_level = 2
 exp_stage = 'coarse'
 
 
 data = dict(
-    datadir='./data/Synthetic_NSVF/',
+    datadir=os.path.join('.', 'data', 'Synthetic_NSVF'),
     dataset_type='nsvf',
     inverse_y=True,
     white_bkgd=True,

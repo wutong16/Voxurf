@@ -130,8 +130,8 @@ def load_data(args, reso_level=2, train_all=True, wmask=True, white_bg=True):
                 images = images[...,:3]*images[...,-1:]
 
     elif args.dataset_type == 'deepvoxels':
-        args.scene = args.datadir.split('/')[-1]	
-        args.datadir = os.path.join(*args.datadir.split('/')[:-1])
+        args.scene = args.datadir.split(os.sep)[-1]
+        args.datadir = os.path.join(*args.datadir.split(os.sep)[:-1])
         images, poses, render_poses, hwf, i_split = load_dv_data(scene=args.scene, basedir=args.datadir, testskip=args.testskip)
         print('Loaded deepvoxels', images.shape, render_poses.shape, hwf, args.datadir)
         i_train, i_val, i_test = i_split

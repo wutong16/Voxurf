@@ -1,14 +1,16 @@
-_base_ = '../default_fine_s.py'
+import os
+
+_base_ = os.path.join('..', 'default_fine_s.py')
 
 expname = 'scan'
-basedir = './logs/blended_mvs'
+basedir = os.path.join('.', 'logs', 'blended_mvs')
 train_all = False
 reso_level = 1
 exp_stage = 'fine'
 
 
 data = dict(
-    datadir='./data/BlendedMVS/',
+    datadir=os.path.join('.', 'data', 'BlendedMVS'),
     dataset_type='blendedmvs',
     inverse_y=True,
     white_bkgd=True, # need to manually adjust the background color for BlendedMVS

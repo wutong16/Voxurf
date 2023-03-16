@@ -1,14 +1,16 @@
-_base_ = '../default_fine_s.py'
+import os
+
+_base_ = os.path.join('..', 'default_fine_s.py')
 
 expname = 'scan'
-basedir = './logs/nerf_synthetic'
+basedir = os.path.join('.', 'logs', 'nerf_synthetic')
 train_all = False
 reso_level = 1
 exp_stage = 'fine'
 
 
 data = dict(
-    datadir='./data/nerf_synthetic/',
+    datadir=os.path.join('.', 'data', 'nerf_synthetic'),
     dataset_type='blender',
     # inverse_y=True,
     white_bkgd=True,

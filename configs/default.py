@@ -1,7 +1,8 @@
+import os
 from copy import deepcopy
 
-expname = None                    # experiment name
-basedir = './logs/'               # where to store ckpts and logs
+expname = None                       # experiment name
+basedir = os.path.join('.', 'logs')  # where to store ckpts and logs
 
 ''' Template of data options
 '''

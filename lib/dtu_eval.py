@@ -34,7 +34,7 @@ def write_vis_pcd(file, points, colors):
     pcd.colors = o3d.utility.Vector3dVector(colors)
     o3d.io.write_point_cloud(file, pcd)
 
-def eval(in_file, scene, eval_dir, dataset_dir='data/DTU', suffix="", max_dist = 20, use_o3d=False, runtime=False):
+def eval(in_file, scene, eval_dir, dataset_dir=os.path.join('data', 'DTU'), suffix="", max_dist = 20, use_o3d=False, runtime=False):
     # default dtu values
     scene = int(scene)
     patch = 60
@@ -109,7 +109,7 @@ def eval(in_file, scene, eval_dir, dataset_dir='data/DTU', suffix="", max_dist =
 
     pbar.update(1)
     pbar.set_description('masking data pcd')
-    obs_mask_file = loadmat(f'{dataset_dir}/ObsMask/ObsMask{scene}_10.mat')
+    obs_mask_file = loadmat(os.path.join(dataset_dir, 'ObsMask', f'ObsMask{scene}_10.mat'))
     ObsMask, BB, Res = [obs_mask_file[attr] for attr in ['ObsMask', 'BB', 'Res']]
     BB = BB.astype(np.float32)
 
@@ -127,11 +127,11 @@ def eval(in_file, scene, eval_dir, dataset_dir='data/DTU', suffix="", max_dist =
 
     if use_o3d:
         # use open3d
-        stl_pcd = o3d.io.read_point_cloud(f'{dataset_dir}/Points/stl/stl{scene:03}_total.ply')
+        stl_pcd = o3d.io.read_point_cloud(os.path.join(dataset_dir, 'Points', 'stl', f'stl{scene:03}_total.ply'))
         stl = np.asarray(stl_pcd.points)
     else:
         # use trimesh
-        stl = trimesh.load(f'{dataset_dir}/Points/stl/stl{scene:03}_total.ply')
+        stl = trimesh.load(os.path.join(dataset_dir, 'Points', 'stl', f'stl{scene:03}_total.ply'))
 
     if runtime:
         num_gt = data_in_obs.shape[0] * 2
@@ -149,7 +149,7 @@ def eval(in_file, scene, eval_dir, dataset_dir='data/DTU', suffix="", max_dist =
 
     pbar.update(1)
     pbar.set_description('compute stl2data')
-    ground_plane = loadmat(f'{dataset_dir}/ObsMask/Plane{scene}.mat')['P']
+    ground_plane = loadmat(os.path.join(dataset_dir, 'ObsMask', f'Plane{scene}.mat'))['P']
 
     stl_hom = np.concatenate([stl, np.ones_like(stl[:, :1])], -1)
     above = (ground_plane.reshape((1, 4)) * stl_hom).sum(-1) > 0
