@@ -14,7 +14,7 @@ from tqdm import tqdm
 from scipy.io import loadmat
 import multiprocessing as mp
 import trimesh
-
+import os
 
 def sample_single_tri(input_):
     n1, n2, v1, v2, tri_vert = input_
