@@ -17,3 +17,4 @@ setuptools==59.5.0
 icecream
 torch_efficient_distloss
 matplotlib
+torch_scatter
