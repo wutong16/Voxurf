@@ -3,6 +3,7 @@ from shutil import copyfile
 from tqdm import tqdm, trange
 import math
 import mmcv
+import mmengine
 import imageio
 import numpy as np
 import trimesh
@@ -912,7 +913,7 @@ if __name__=='__main__':
     # load setup
     parser = config_parser()
     args = parser.parse_args()
-    cfg = mmcv.Config.fromfile(args.config)
+    cfg = mmengine.Config.fromfile(args.config)
     # reset the root by the scene id
     if args.scene:
         cfg.expname += "{}".format(args.scene)
